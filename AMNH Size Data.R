@@ -76,6 +76,7 @@ head(amnhdata, 5)
 hist(amnhdata$mass)
 lines(density(amnhdata$mass), col = 'green', lwd = 1)
 ############################################################
-qqnorm(amnhdata$mass, pch = 1, frame = FALSE)
+qqnorm(amnhdata$mass, pch = 1, frame = FALSE)  
 qqline(amnhdata$mass, col = "green", lwd = 2)
+############################################################
 
