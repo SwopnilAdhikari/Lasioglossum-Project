@@ -8,7 +8,7 @@ amnhdata <- read_excel(here("data", "amnhsize.xlsx"))
 massvsmmat <- ggplot(data = amnhdata, aes(x = meanmat, y = mass)) 
 
 massvsmmat + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 3, y = .08, label = "P-Value = 0.0024") + labs(
+  annotate("text", x = 3.4, y = .08, label = "P-Value = 0.0024") + labs(
   x = "Mean Annual Temperature(C)",
   y = "Mass(g)",
   title = "Mass(g) vs Mean Annual Temperature"
@@ -66,26 +66,29 @@ massvsmatybc + geom_point() + geom_smooth(method = "lm") +
 lmMassvsmatybc <- lm(mass ~ matybc, data = amnhdata)
 summary(lmMassvsmatybc)
 ##########################################################
-itxthoraxvsmatybc <- ggplot(data = amnhdata, aes(x = itxthorax, y = matybc))
-itxthoraxvsmatybc + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 0.018, y = 25, label = "P-Value = 0.112")+ labs(
+itxthoraxvsmass <- ggplot(data = amnhdata, aes(x = itxthorax, y = mass))
+itxthoraxvsmass + geom_point() + geom_smooth(method = "lm") + 
+  annotate("text", x = 0.018, y = .09, label = "P-Value = 0.008181")+ labs(
   x = "IT x Thorax(cm)",
-  y = "Temperature(C)",
-  title = "IT x Thorax vs Mean Annual Temperature(Year of Birth)"
+  y = "Mass(g)",
+  title = "IT x Thorax vs Mass"
 )
-lmitxthoraxvsmatybc <- lm(itxthorax ~ matybc, data = amnhdata)
-summary(lmitxthoraxvsmatybc) 
+lmitxthoraxvsmass <- lm(itxthorax ~ mass, data = amnhdata)
+summary(lmitxthoraxvsmass) 
 ############################################################
 head(amnhdata, 5)
 hist(amnhdata$mass)
 lines(density(amnhdata$mass), col = 'green', lwd = 1)
 ############################################################
-qqnorm(amnhdata$mass, pch = 1, frame = FALSE)  
+qqnorm(amnhdata$mass, pch = 1, frame = FALSE) 
 qqline(amnhdata$mass, col = "green", lwd = 2)
 ###########################################################
 logData <- log10(amnhdata$mass)
 hist(logData)
 lines(density(logData), col = "green", lwd = 2)
 ############################################################
+mod1 <- lm(amnhdata$mass ~ amnhdata$meanmat)
+plot(mod1)
 
+$$$$$
 
