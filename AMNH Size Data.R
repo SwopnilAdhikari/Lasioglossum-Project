@@ -8,7 +8,8 @@ amnhdata <- read_excel(here("data", "amnhsize.xlsx"))
 massvsmmat <- ggplot(data = amnhdata, aes(x = meanmat, y = mass)) 
 
 massvsmmat + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 3.4, y = .08, label = "P-Value = 0.0024") + labs(
+  annotate("text", x = 3.4, y = .08, label = "P-Value = 0.0024") +
+ annotate("text", x = 3.4, y = .077, label = "R2 Value = 0.1398") + labs(
   x = "Mean Annual Temperature(C)",
   y = "Mass(g)",
   title = "Mass(g) vs Mean Annual Temperature"
@@ -18,7 +19,8 @@ summary(lmMassvsmmat)
 ###########################################################
 massvsyear <- ggplot(data = amnhdata, aes(x = year, y = mass))
 massvsyear + geom_point() + geom_smooth(method = "lm") +
-annotate("text", x = 1918, y = 0.08, label = "P-Value = 3.358e-05") + labs(
+annotate("text", x = 1918, y = 0.08, label = "P-Value = 3.358e-05") + 
+annotate("text", x = 1918, y = 0.078, label = "R2 Value = 0.2574") + labs(
   x = "Year",
   y = "Mass(g)",
   title = "Mass vs Year Collected"
@@ -28,7 +30,8 @@ summary(lmMassvsyear)
 ###########################################################
 massvsmaxt <- ggplot(data = amnhdata, aes(x = maxt, y = mass))
 massvsmaxt + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 15, y = 0.09, label = "P-Value = 3.05e-04") + labs(
+  annotate("text", x = 15, y = 0.09, label = "P-Value = 3.05e-04") + 
+  annotate("text", x = 15, y = 0.087, label = "R2 Value = 0.1984") +labs(
   x = "Temperature(C)",
   y = "Mass(g)",
   title = "Mass vs Max Temperature in Month of Collection"
@@ -38,7 +41,8 @@ summary(lmMassvsmaxt)
 ###########################################################
 massvsmonth <- ggplot(data = amnhdata, aes(x = month, y = mass))
 massvsmonth + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 3.2, y = 0.09, label = "P-Value = 0.21") + labs(
+  annotate("text", x = 3.2, y = 0.09, label = "P-Value = 0.21") + 
+  annotate("text", x = 3.2, y = 0.088, label = "R2 Value = 0.010") + labs(
   x = "Month",
   y = "Mass(g)",
   title = "Correlation of Mass to Month of Collection"
@@ -58,7 +62,8 @@ summary(lmItxthoraxvsmmat)
 ##########################################################
 massvsmatybc <- ggplot(data = amnhdata, aes(x = matybc, y = mass))
 massvsmatybc + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 3.5, y = 0.09, label = "P-Value = 2.8e-02") + labs(
+  annotate("text", x = 3.5, y = 0.09, label = "P-Value = 2.8e-02") + 
+  annotate("text", x = 3.5, y = 0.088, label = "R2 Value = 0.1357") + labs(
   x = "Temperature(C)",
   y = "Mass(g)",
   title = "Mass vs Mean Annual Temperature(Year of Birth)"
@@ -68,7 +73,8 @@ summary(lmMassvsmatybc)
 ##########################################################
 itxthoraxvsmass <- ggplot(data = amnhdata, aes(x = itxthorax, y = mass))
 itxthoraxvsmass + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 0.018, y = .09, label = "P-Value = 0.008181")+ labs(
+  annotate("text", x = 0.018, y = .09, label = "P-Value = 0.008181")+ 
+  annotate("text", x = 0.018, y = 0.088, label = "R2 Value = 0.1044") + labs(
   x = "IT x Thorax(cm)",
   y = "Mass(g)",
   title = "IT x Thorax vs Mass"
@@ -90,5 +96,4 @@ lines(density(logData), col = "green", lwd = 2)
 mod1 <- lm(amnhdata$mass ~ amnhdata$meanmat)
 plot(mod1)
 
-$$$$$
 
