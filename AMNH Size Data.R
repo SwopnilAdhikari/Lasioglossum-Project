@@ -66,15 +66,15 @@ massvsmatybc + geom_point() + geom_smooth(method = "lm") +
 lmMassvsmatybc <- lm(mass ~ matybc, data = amnhdata)
 summary(lmMassvsmatybc)
 ##########################################################
-itxthoraxvsmatybc <- ggplot(data = amnhdata, aes(x = itxthorax, y = matybc))
-itxthoraxvsmatybc + geom_point() + geom_smooth(method = "lm") + 
-  annotate("text", x = 0.018, y = 25, label = "P-Value = 0.112")+ labs(
+itxthoraxvsmass <- ggplot(data = amnhdata, aes(x = itxthorax, y = mass))
+itxthoraxvsmass + geom_point() + geom_smooth(method = "lm") + 
+  annotate("text", x = 0.018, y = .09, label = "P-Value = 0.008181")+ labs(
   x = "IT x Thorax(cm)",
-  y = "Temperature(C)",
-  title = "IT x Thorax vs Mean Annual Temperature(Year of Birth)"
+  y = "Mass(g)",
+  title = "IT x Thorax vs Mass"
 )
-lmitxthoraxvsmatybc <- lm(itxthorax ~ matybc, data = amnhdata)
-summary(lmitxthoraxvsmatybc) 
+lmitxthoraxvsmass <- lm(itxthorax ~ mass, data = amnhdata)
+summary(lmitxthoraxvsmass) 
 ############################################################
 head(amnhdata, 5)
 hist(amnhdata$mass)
