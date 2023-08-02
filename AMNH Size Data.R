@@ -90,3 +90,6 @@ lines(density(logData), col = "green", lwd = 2)
 mod1 <- lm(amnhdata$mass ~ amnhdata$meanmat)
 plot(mod1)
 
+$$$$$
+
+
