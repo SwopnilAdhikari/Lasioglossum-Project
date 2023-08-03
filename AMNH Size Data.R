@@ -18,7 +18,8 @@ summary(lmMassvsmmat)
 ###########################################################
 massvsyear <- ggplot(data = amnhdata, aes(x = year, y = mass))
 massvsyear + geom_point() + geom_smooth(method = "lm") +
-annotate("text", x = 1918, y = 0.08, label = "P-Value = 3.358e-05") + labs(
+annotate("text", x = 1918, y = 0.08, label = "P-Value = 3.358e-05") + 
+  annotate("text", x = 1918, y = 0.078, label = "R2 Value = 0.25") + labs(
   x = "Year",
   y = "Mass(g)",
   title = "Mass vs Year Collected"
