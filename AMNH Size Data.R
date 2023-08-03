@@ -26,6 +26,7 @@ massvsyear + geom_point() + geom_smooth(method = "lm") +
     title = "Mass vs Year Collected"
   )
 lmMassvsyear <- lm(mass ~ year, data = amnhdata)
+
 summary(lmMassvsyear)
 ###########################################################
 massvsmaxt <- ggplot(data = amnhdata, aes(x = maxt, y = mass))
@@ -95,3 +96,4 @@ lines(density(logData), col = "green", lwd = 2)
 ############################################################
 mod1 <- lm(amnhdata$mass ~ amnhdata$meanmat)
 plot(mod1)
+
