@@ -82,6 +82,30 @@ itxthoraxvsmass + geom_point() + geom_smooth(method = "lm") +
   )
 lmitxthoraxvsmass <- lm(itxthorax ~ mass, data = amnhdata)
 summary(lmitxthoraxvsmass) 
+###########################################################
+massvsprecip <- ggplot(data = amnhdata, aes(x = mass, y = precip))
+massvsprecip + geom_point() + geom_smooth(method = "lm") + ylim(180, 550) +
+  annotate("text", x = 0.037, y = 520, label = "P-Value = 0.4281")+ 
+  annotate("text", x = 0.037, y = 500, label = "R2 Value = 0.01146") +
+  labs(
+  x = "Mass(g)",
+  y = "Mean Annual Preciptation(mm)",
+  title = "Correlation of Mass to Annual Precipitation"
+)
+lmmassvsprecip <- lm(mass ~ precip, data = amnhdata)
+summary(lmmassvsprecip)
+###########################################################
+massvsprecipybc <- ggplot(data = amnhdata, aes(x = mass, y = precipybc))
+massvsprecipybc + geom_point() + geom_smooth(method = "lm") + ylim(180,550) +
+  annotate("text", x = 0.037, y = 520, label = "P-Value = 0.4303")+ 
+  annotate("text", x = 0.037, y = 500, label = "R2 Value = 0.01135") +
+  labs(
+    x = "Mass(g)",
+    y = "Mean Annual Preciptation(mm)",
+    title = "Correlation of Mass to Annual Precipitation(Year Before Collection)"
+  )
+lmmassvsprecipybc <- lm(mass ~ precipybc, data = amnhdata)
+summary(lmmassvsprecipybc)
 ############################################################
 head(amnhdata, 5)
 hist(amnhdata$mass)
