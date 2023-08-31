@@ -121,3 +121,7 @@ lines(density(logData), col = "green", lwd = 2)
 mod1 <- lm(amnhdata$mass ~ amnhdata$meanmat)
 plot(mod1)
 
+
+
+###variables to look at: temperature, precipitation,### 
+###seasonality temp(variation of temperature across the year), seasonality precip, elevation###
