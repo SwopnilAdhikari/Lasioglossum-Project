@@ -125,3 +125,9 @@ plot(mod1)
 
 ###variables to look at: temperature, precipitation,### 
 ###seasonality temp(variation of temperature across the year), seasonality precip, elevation###
+
+
+#NEW LOCATION GRAPHS#
+
+newlocations <- read_excel(here("data", "revisedlocationdata.xlsx"))
+newlocations
